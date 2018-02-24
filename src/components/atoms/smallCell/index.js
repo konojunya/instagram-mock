@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Dimensions, Image, View, StyleSheet} from 'react-native'
+import {Dimensions, Image, View, StyleSheet, TouchableOpacity} from 'react-native'
 
 const CELL_SIZE = Dimensions.get('window').width / 3
 
@@ -9,15 +9,19 @@ export default class SmallCell extends Component {
 	}
 
 	render() {
-		const {uri, type} = this.props
+		const {uri, type, onPress} = this.props
 		return (
-			<View style={styles.container}>
+			<TouchableOpacity
+				activeOpacity={1}
+				onPress={onPress ? onPress : null}
+				style={styles.container}
+			>
 				<Image
 					style={styles.cellImage}
 					source={{uri: uri}}
 				/>
 				{this.renderIcon(type)}
-			</View>
+			</TouchableOpacity>
 		)
 	}
 
