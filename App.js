@@ -4,6 +4,7 @@ import { Image, View, Dimensions } from 'react-native'
 import { Router, Tabs, Scene } from 'react-native-router-flux'
 import Index from './src/components/pages/index'
 import TabIcon from './src/components/atoms/tabIcon'
+import Search from "./src/components/pages/search/index";
 
 export default class App extends React.Component {
   render() {
@@ -23,9 +24,11 @@ export default class App extends React.Component {
             icon={() => <TabIcon type="home" />}
           />
           <Scene
-            title="hoge2"
-            component={Index}
+						initial
+            title="Search"
+            component={Search}
             icon={() => <TabIcon type="search" />}
+						hideNavBar
           />
           <Scene
             title="hoge3"
